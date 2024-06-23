@@ -88,7 +88,7 @@ public class RestApiController {
         try {
             var response = restTemplate.getForObject("https://dummyjson.com/products", ProductResponse.class);
             assert response != null;
-            var products = response.findProductsByTitle(input);
+            var products = response.findProductsByTitle(input); 
             if(products.isEmpty())
                 return new ResponseEntity<>("No products found with these parameters!",HttpStatus.NOT_FOUND);
             return new ResponseEntity<>(products,HttpStatus.OK);
