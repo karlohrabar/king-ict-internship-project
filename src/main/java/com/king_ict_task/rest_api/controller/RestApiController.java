@@ -82,5 +82,20 @@ public class RestApiController {
 
     }
 
+    @GetMapping("/product/search/{input}")
+    public ResponseEntity<?> searchProductsByTitle(@PathVariable String input){
+        var restTemplate = new RestTemplate();
+        try {
+            var response = restTemplate.getForObject("https://dummyjson.com/products", ProductResponse.class);
+            assert response != null;
+            var products = response.findProductsByTitle(input);
+            if(products.isEmpty())
+                return new ResponseEntity<>("No products found with these parameters!",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(products,HttpStatus.OK);
+        }
 
+        catch(Exception e){
+            return new ResponseEntity<String>("No products found!", HttpStatus.NOT_FOUND);
+        }
+    }
 }

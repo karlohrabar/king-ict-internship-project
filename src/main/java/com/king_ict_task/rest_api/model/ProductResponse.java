@@ -24,4 +24,14 @@ public class ProductResponse {
         return filteredProducts;
     }
 
+    public List<Product> findProductsByTitle(String input){
+        var filteredProducts = new ArrayList<Product>();
+        for(var product : products){
+            if(product.getTitle().toLowerCase().contains(input.toLowerCase()))
+                filteredProducts.add(product);
+        }
+
+        return filteredProducts;
+    }
+
 }
