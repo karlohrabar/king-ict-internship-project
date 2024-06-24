@@ -25,9 +25,14 @@ And that's it! The app should be up and running.
 These are all the available endpoints that you can access via web browser(make sure to start every URL with localhost:8080/api):
 
 /hello -> prints out a Hello World! message
+
 /products -> lists all products from the API
+
 /product/{id} -> gives info about a specific product whose ID is the parameter
+
 /product/random -> gives info about a random product
+
 /product/{category}/{min}/{max} -> searches for products by category and price range
+
 /product/search/{input} -> searches for products containing the input word as parameter
 
